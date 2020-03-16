@@ -59,3 +59,54 @@ function beyond(num) {
 
 beyond(-2);
 
+function rockPaperScissors(number){
+  if(number <0 && number >3){
+    throw new Error('enter valid number');
+  }
+  const randomNo = Math.floor(Math.random() * 3) + 1;
+
+  switch (number) {
+  case 1:
+    if(randomNo===1){
+      return 'you tied: opponent picked rock';
+    }
+    if(randomNo===2){
+      return 'you lose: opponent picked paper';
+    }
+    if(randomNo===3){
+      return 'you win: opponent picked scissors';
+    }
+    break;
+
+  case 2:
+    if(randomNo===1){
+      return 'you win: opponent picked rock';
+    }
+    if(randomNo===2){
+      return 'you tied: opponent picked paper';
+    }
+    if(randomNo===3){
+      return 'you lose: opponent picked scissors';
+    }
+    break;
+    
+  case 3:
+    if(randomNo===1){
+      return 'you lose: opponent picked rock';
+    }
+    if(randomNo===2){
+      return 'you tied: opponent picked paper';
+    }
+    if(randomNo===3){
+      return 'you win: opponent picked scissors';
+    }
+    break;
+  }
+
+}
+// rock =1 paper=2 scissors=3
+try{
+  console.log(rockPaperScissors(2));
+}catch(error){
+  console.log(error.message);
+}
