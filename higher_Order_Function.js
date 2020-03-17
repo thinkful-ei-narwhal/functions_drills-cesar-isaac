@@ -74,7 +74,10 @@ function turtleMovements(turtle){
   const moves= turtle.filter(num => num[0] >= 0 && num[1] >=0);
   const totalSteps= moves.map(num => num[0]+num[1]);
   let run = 0;
-  let arr=totalSteps.forEach((element)=> {console.log(`Movement #${run}: ${element}  steps`) );
-  
+  return totalSteps.forEach((element)=>{
+    run++;
+    console.log(`Movement #${run}: ${element}  steps`);
+  });
+
 }
 turtleMovements([[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]]);
