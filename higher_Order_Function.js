@@ -26,8 +26,9 @@ function filter(arr, fn) {
   const newArray = [];
 
   arr.forEach(element => {
-    console.log(fn);
-    if (fn === 'true') {
+    let fn1 = fn(element);
+
+    if (fn1) {
       newArray.push(element);
     }
   });
