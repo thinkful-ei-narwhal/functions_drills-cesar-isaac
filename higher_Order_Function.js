@@ -50,12 +50,14 @@ const filteredNames = filter(myNames, function(name) {
 console.log(filteredNames); // => ['Rich', 'Ray']
 // <---- DO NOT EDIT BETWEEN THESE LINES
 
-function hazardWarningCreator(typeOfWarning){
-  let warningCounter= 0;
-  return  function (location){
+function hazardWarningCreator(typeOfWarning) {
+  let warningCounter = 0;
+  return function(location) {
     warningCounter++;
     console.log(`DANGER! There is a ${typeOfWarning} hazard at ${location}!`);
-    console.log(`The ${typeOfWarning} hazard alert has triggered ${warningCounter} time(s) today!`);
+    console.log(
+      `The ${typeOfWarning} hazard alert has triggered ${warningCounter} time(s) today!`
+    );
   };
 }
 
@@ -65,7 +67,28 @@ const hurcaneWarning = hazardWarningCreator('hurcane near by');
 
 rocksWarning('Main St and Pacific Ave');
 rocksWarning('Centinela Ave and Olympic Blvd');
-tsunamiWarning ('Centinela Ave and Olympic Blvd');
-tsunamiWarning ('camino de la playa');
-hurcaneWarning ('Centinela Ave and Olympic Blvd');
+tsunamiWarning('Centinela Ave and Olympic Blvd');
+tsunamiWarning('camino de la playa');
+hurcaneWarning('Centinela Ave and Olympic Blvd');
 hurcaneWarning('Main St and Pacific Ave');
+
+/* *****************************
+        Reduce Function
+********************************/
+
+let arr = 'noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest'.split(
+  ' '
+);
+
+const reducer = (accumulator, currentValue) => {
+  if (currentValue.length === 3) {
+    accumulator += ' ';
+  } else {
+    let index = currentValue.length - 1;
+    let last = currentValue[index].toUpperCase();
+    accumulator += `${currentValue.slice(0, index)}${last}`;
+  }
+  return accumulator;
+};
+
+console.log(arr.reduce(reducer, ''));
