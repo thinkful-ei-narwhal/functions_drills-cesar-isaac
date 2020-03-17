@@ -50,12 +50,14 @@ const filteredNames = filter(myNames, function(name) {
 console.log(filteredNames); // => ['Rich', 'Ray']
 // <---- DO NOT EDIT BETWEEN THESE LINES
 
-function hazardWarningCreator(typeOfWarning){
-  let warningCounter= 0;
-  return  function (location){
+function hazardWarningCreator(typeOfWarning) {
+  let warningCounter = 0;
+  return function(location) {
     warningCounter++;
     console.log(`DANGER! There is a ${typeOfWarning} hazard at ${location}!`);
-    console.log(`The ${typeOfWarning} hazard alert has triggered ${warningCounter} time(s) today!`);
+    console.log(
+      `The ${typeOfWarning} hazard alert has triggered ${warningCounter} time(s) today!`
+    );
   };
 }
 
@@ -81,3 +83,27 @@ function turtleMovements(turtle){
 
 }
 turtleMovements([[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]]);
+
+
+
+/* *****************************
+        Reduce Function
+********************************/
+
+let arr = 'noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest'.split(
+  ' '
+);
+
+const reducer = (accumulator, currentValue) => {
+  if (currentValue.length === 3) {
+    accumulator += ' ';
+  } else {
+    let index = currentValue.length - 1;
+    let last = currentValue[index].toUpperCase();
+    accumulator += `${currentValue.slice(0, index)}${last}`;
+  }
+  return accumulator;
+};
+
+console.log(arr.reduce(reducer, ''));
+
