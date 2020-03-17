@@ -26,16 +26,9 @@ function filter(arr, fn) {
   const newArray = [];
 
   arr.forEach(element => {
-<<<<<<< HEAD
-    if (fn === 'true') {
-||||||| e3c05ed
-    console.log(fn);
-    if (fn === 'true') {
-=======
     let fn1 = fn(element);
 
     if (fn1) {
->>>>>>> ca51ef4c6bbb984f6eab42ea52301fb00acea22f
       newArray.push(element);
     }
   });
